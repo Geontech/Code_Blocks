@@ -1,0 +1,19 @@
+#!/bin/bash
+# Script's purpose: restart the omni* services
+# Resolves: TRANSIENT errors when launching a Domain, etc.
+#
+# Run this script as super user or using sudo
+# Or... do this:
+#    sudo chown root.root Restart\ Omni
+#    sudo chmod 4755 Restart\ Omni
+#
+# Then every time you sudo ./Restart\ Omni, it should clean up.
+
+sudo /sbin/service omniEvents stop
+sudo /sbin/service omniNames stop
+sudo rm -f /var/log/omniORB/*
+sudo rm -f /var/lib/omniEvents/*
+sudo /sbin/service omniNames start
+sudo /sbin/service omniEvents start
+
+read -n1 -r -p "Press any key to continue..." key
