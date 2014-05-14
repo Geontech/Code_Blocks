@@ -1,7 +1,7 @@
 Code_Blocks
 ===========
 
-Code blocks related to our YouTube tutorial sessions
+Code blocks related to our [YouTube tutorial sessions](http://www.youtube.com/user/GeonTechnologies/)
 
 ===========
  - Utilities -
