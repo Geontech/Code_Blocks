@@ -1,0 +1,20 @@
+<!-- INSERT BELOW 'connection_1' </connectioninterface> -->
+<connectinterface id="device_connection_1">
+  <usesport>
+    <usesidentifier>dataFloat_out</usesidentifier>
+    <deviceusedbyapplication usesrefid="device_connection"/>
+  </usesport>
+  <providesport>
+    <providesidentifier>dataFloat_In</providesidentifier>
+    <componentinstantiationref refid="TuneFilterDecimate_1"/>
+  </providesport>
+</connectinterface>
+
+<!-- BELOW THE </connections> TAG -->
+<usesdevicedependencies>
+    <usesdevice id="device_connection">
+        <propertyref refid="DCE:cdc5ee18-7ceb-4ae6-bf4c-31f983179b4d" 
+                     value="chirp"/>
+    </usesdevice>
+</usesdevicedependencies>
+ 

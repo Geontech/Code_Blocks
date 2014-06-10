@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE softpkg PUBLIC "-//JTRS//DTD SCA V2.2.2 SPD//EN" "softpkg.dtd">
+<softpkg id="DCE:de779ca5-65bb-4a7a-94a0-65a1b62fbc9f" name="chirp_comp_passthrough" type="sca_compliant">
+  <title></title>
+  <author>
+    <name>null</name>
+  </author>
+  <description>Very simple device: get data, push data.</description>
+  <propertyfile type="PRF">
+    <localfile name="chirp_comp_passthrough.prf.xml"/>
+  </propertyfile>
+  <descriptor>
+    <localfile name="chirp_comp_passthrough.scd.xml"/>
+  </descriptor>
+  <implementation id="python">
+    <description>The implementation contains descriptive information about the template for a software component.</description>
+    <code type="Executable">
+      <localfile name="python"/>
+      <entrypoint>python/chirp_comp_passthrough.py</entrypoint>
+    </code>
+    <programminglanguage name="Python"/>
+    <humanlanguage name="EN"/>
+    <runtime name="python" version="2.4.4"/>
+    <dependency type="allocation">
+      <propertyref refid="throttle" value="1024"/>
+    </dependency>
+  </implementation>
+</softpkg>

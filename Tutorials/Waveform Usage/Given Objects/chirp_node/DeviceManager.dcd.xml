@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE deviceconfiguration PUBLIC "-//JTRS//DTD SCA V2.2.2 DCD//EN" "deviceconfiguration.dtd">
+<deviceconfiguration id="DCE:26435145-22d5-4f1d-b63f-324497e31fbe" name="chirp_node">
+  <devicemanagersoftpkg>
+    <localfile name="/mgr/DeviceManager.spd.xml"/>
+  </devicemanagersoftpkg>
+  <componentfiles>
+    <componentfile id="chirp_fm_e5a52ec9-a57d-4c9a-8274-9836c238774e" type="SPD">
+      <localfile name="/devices/chirp_fm/chirp_fm.spd.xml"/>
+    </componentfile>
+    <componentfile id="GPP_8763e070-fdd5-4bb0-9e53-426667aa45ec" type="SPD">
+      <localfile name="/devices/GPP/GPP.spd.xml"/>
+    </componentfile>
+  </componentfiles>
+  <partitioning>
+    <componentplacement>
+      <componentfileref refid="chirp_fm_e5a52ec9-a57d-4c9a-8274-9836c238774e"/>
+      <componentinstantiation id="chirp_node:chirp_fm_1">
+        <usagename>chirp_fm_1</usagename>
+      </componentinstantiation>
+    </componentplacement>
+    <componentplacement>
+      <componentfileref refid="GPP_8763e070-fdd5-4bb0-9e53-426667aa45ec"/>
+      <componentinstantiation id="chirp_node:GPP_1">
+        <usagename>GPP_1</usagename>
+      </componentinstantiation>
+    </componentplacement>
+  </partitioning>
+  <domainmanager>
+    <namingservice name="REDHAWK_DEV/REDHAWK_DEV"/>
+  </domainmanager>
+</deviceconfiguration>

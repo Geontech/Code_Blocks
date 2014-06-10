@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties PUBLIC "-//JTRS//DTD SCA V2.2.2 PRF//EN" "properties.dtd">
+<properties>
+  <simple id="DCE:cdc5ee18-7ceb-4ae6-bf4c-31f983179b4d" mode="readonly" name="device_kind" type="string">
+    <description>This specifies the device kind</description>
+    <value>chirp</value>
+    <kind kindtype="configure"/>
+    <kind kindtype="allocation"/>
+    <action type="eq"/>
+  </simple>
+  <simple id="DCE:0f99b2e4-9903-4631-9846-ff349d18ecfb" mode="readonly" name="device_model" type="string">
+    <description> This specifies the specific device</description>
+    <kind kindtype="configure"/>
+    <kind kindtype="allocation"/>
+    <action type="eq"/>
+  </simple>
+  <simple id="throttle" mode="readwrite" type="long">
+    <description>Throttle port output to some number of samples per push, sleep until enough time has passed for the new samples to be acquired.</description>
+    <value>1024</value>
+    <kind kindtype="allocation"/>
+    <kind kindtype="configure"/>
+    <action type="eq"/>
+  </simple>
+  <simple id="debug_vector" mode="readwrite" type="boolean">
+    <value>False</value>
+    <kind kindtype="execparam"/>
+    <action type="external"/>
+  </simple>
+  <simple id="fs" mode="readonly" type="float">
+    <description>Sampling frequency</description>
+    <value>22000</value>
+    <units>Hz</units>
+    <action type="external"/>
+  </simple>
+  <simple id="fmod" mode="readonly" type="float">
+    <description>Modulation frequency</description>
+    <value>200.0</value>
+    <units>Hz</units>
+    <action type="external"/>
+  </simple>
+  <struct id="chirp" mode="readwrite">
+    <description>Parameters for the chirp</description>
+    <simple id="duration" mode="readwrite" type="float">
+      <description>Chirp duration, time from fstart to fstop.</description>
+      <value>0.25</value>
+      <units>seconds</units>
+      <range max="100.0" min="0.1"/>
+      <kind kindtype="configure"/>
+      <action type="external"/>
+    </simple>
+    <simple id="fstart" mode="readwrite" type="float">
+      <description>Starting frequency of the chirp</description>
+      <value>4400.0</value>
+      <units>Hz</units>
+      <range max="1.0e9" min="0.0"/>
+      <kind kindtype="configure"/>
+      <action type="external"/>
+    </simple>
+    <simple id="fstop" type="float">
+      <description>Stop frequency of the chirp</description>
+      <value>8800.0</value>
+      <units>Hz</units>
+      <range max="1.0e9" min="0.0"/>
+    </simple>
+    <simple id="amplitude" mode="readwrite" type="float">
+      <description>Amplitude of the chirp.  The modulating FM signal will be 10x this value.</description>
+      <value>1.0</value>
+      <range max="10.0" min="0.1"/>
+      <kind kindtype="configure"/>
+      <action type="external"/>
+    </simple>
+    <configurationkind kindtype="configure"/>
+  </struct>
+</properties>
