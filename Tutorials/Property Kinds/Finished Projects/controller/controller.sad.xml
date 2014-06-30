@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE softwareassembly PUBLIC "-//JTRS//DTD SCA V2.2.2 SAD//EN" "softwareassembly.dtd">
+<softwareassembly id="DCE:07f24990-f4c4-49bc-a0bc-e64a7238d781" name="controller">
+  <componentfiles>
+    <componentfile id="DataConverter_57ce6542-7c65-4551-b058-7b60539ef996" type="SPD">
+      <localfile name="/components/DataConverter/DataConverter.spd.xml"/>
+    </componentfile>
+    <componentfile id="sawcontrol_d916f717-de6c-45a9-8be2-f397508ea590" type="SPD">
+      <localfile name="/components/sawcontrol/sawcontrol.spd.xml"/>
+    </componentfile>
+  </componentfiles>
+  <partitioning>
+    <componentplacement>
+      <componentfileref refid="DataConverter_57ce6542-7c65-4551-b058-7b60539ef996"/>
+      <componentinstantiation id="DataConverter_1">
+        <usagename>DataConverter_1</usagename>
+        <findcomponent>
+          <namingservice name="DataConverter_1"/>
+        </findcomponent>
+      </componentinstantiation>
+    </componentplacement>
+    <componentplacement>
+      <componentfileref refid="sawcontrol_d916f717-de6c-45a9-8be2-f397508ea590"/>
+      <componentinstantiation id="sawcontrol_1" startorder="1">
+        <usagename>sawcontrol_1</usagename>
+        <findcomponent>
+          <namingservice name="sawcontrol_1"/>
+        </findcomponent>
+      </componentinstantiation>
+    </componentplacement>
+  </partitioning>
+  <assemblycontroller>
+    <componentinstantiationref refid="DataConverter_1"/>
+  </assemblycontroller>
+  <connections>
+    <connectinterface id="siggen_data">
+      <usesport>
+        <usesidentifier>dataFloat_out</usesidentifier>
+        <deviceusedbyapplication usesrefid="siggen_connection"/>
+      </usesport>
+      <providesport>
+        <providesidentifier>dataFloat</providesidentifier>
+        <componentinstantiationref refid="DataConverter_1"/>
+      </providesport>
+    </connectinterface>
+    <connectinterface id="siggen_control">
+      <usesport>
+        <usesidentifier>message</usesidentifier>
+        <componentinstantiationref refid="sawcontrol_1"/>
+      </usesport>
+      <providesport>
+        <providesidentifier>message</providesidentifier>
+        <deviceusedbyapplication usesrefid="siggen_connection"/>
+      </providesport>
+    </connectinterface>
+  </connections>
+  <usesdevicedependencies>
+	    <usesdevice id="siggen_connection">
+	        <propertyref refid="sample_freq" value="100000.0"/>
+	    </usesdevice>
+	</usesdevicedependencies>
+</softwareassembly>

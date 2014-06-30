@@ -1,0 +1,11 @@
+
+    <connectinterface id="siggen_control">
+      <usesport>
+        <usesidentifier>message</usesidentifier>
+        <componentinstantiationref refid="sawcontrol_1"/>
+      </usesport>
+      <providesport>
+        <providesidentifier>message</providesidentifier>
+        <deviceusedbyapplication usesrefid="siggen_connection"/>
+      </providesport>
+    </connectinterface>

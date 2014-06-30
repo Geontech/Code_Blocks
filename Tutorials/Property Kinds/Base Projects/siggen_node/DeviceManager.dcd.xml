@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE deviceconfiguration PUBLIC "-//JTRS//DTD SCA V2.2.2 DCD//EN" "deviceconfiguration.dtd">
+<deviceconfiguration id="DCE:0cfb888e-bdeb-4481-827e-782bf609ea51" name="siggen_node">
+  <devicemanagersoftpkg>
+    <localfile name="/mgr/DeviceManager.spd.xml"/>
+  </devicemanagersoftpkg>
+  <componentfiles>
+    <componentfile id="GPP_dfeed22b-849c-42eb-bf5e-5f2ad48da771" type="SPD">
+      <localfile name="/devices/GPP/GPP.spd.xml"/>
+    </componentfile>
+    <componentfile id="sawtooth_device_c5fb03dd-1f09-49c1-a48e-b95f4fc40606" type="SPD">
+      <localfile name="/devices/sawtooth_device/sawtooth_device.spd.xml"/>
+    </componentfile>
+  </componentfiles>
+  <partitioning>
+    <componentplacement>
+      <componentfileref refid="GPP_dfeed22b-849c-42eb-bf5e-5f2ad48da771"/>
+      <componentinstantiation id="DCE:91e5c048-fc9a-4236-962a-4940a82121cc">
+        <usagename>GPP_1</usagename>
+      </componentinstantiation>
+    </componentplacement>
+    <componentplacement>
+      <componentfileref refid="sawtooth_device_c5fb03dd-1f09-49c1-a48e-b95f4fc40606"/>
+      <componentinstantiation id="siggen_node:sawtooth_device_1">
+        <usagename>sawtooth_device_1</usagename>
+      </componentinstantiation>
+    </componentplacement>
+  </partitioning>
+  <domainmanager>
+    <namingservice name="REDHAWK_DEV/REDHAWK_DEV"/>
+  </domainmanager>
+</deviceconfiguration>
