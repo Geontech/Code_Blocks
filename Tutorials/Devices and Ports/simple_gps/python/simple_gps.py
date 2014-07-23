@@ -36,7 +36,7 @@ class GPSInfo:
     snr             = 0.0
     status_message  = ''
     timestamp       = bulkio.timestamp.now()
-    additional_info = None
+    additional_info = []
 
 class GpsTimePos:
     position    = PositionInfo()
