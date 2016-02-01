@@ -1,6 +1,8 @@
 Code_Blocks
 ===========
 
+> **Note:** These code blocks were devloped in REDHAWK 1.9 and 1.10.  Updated blocks and videos are being prepared for REDHAWK 2.0.
+
 Code blocks related to our [YouTube tutorial sessions](http://www.youtube.com/user/GeonTechnologies/)
 
 ===========
