@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE softpkg PUBLIC "-//JTRS//DTD SCA V2.2.2 SPD//EN" "softpkg.dtd">
-<softpkg id="DCE:fa91af93-348f-4ad1-88dd-0362a5d125df" name="chirp_fm" type="sca_compliant">
+<softpkg id="DCE:34e0fcb6-dd6b-46f7-a662-5c5a24b7d41c" name="chirp_fm" type="2.0.0">
   <title></title>
   <author>
     <name>null</name>
   </author>
-  <description>Takes an audible linear FM base-band signal and FM-modulates it to a configured carrier frequency.</description>
   <propertyfile type="PRF">
     <localfile name="chirp_fm.prf.xml"/>
   </propertyfile>
@@ -20,7 +19,7 @@
     </code>
     <programminglanguage name="Python"/>
     <humanlanguage name="EN"/>
-    <runtime name="python" version="2.4.4"/>
+    <runtime name="python" version="2.6.6"/>
     <os name="Linux"/>
   </implementation>
 </softpkg>

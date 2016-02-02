@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE deviceconfiguration PUBLIC "-//JTRS//DTD SCA V2.2.2 DCD//EN" "deviceconfiguration.dtd">
-<deviceconfiguration id="DCE:26435145-22d5-4f1d-b63f-324497e31fbe" name="chirp_node">
+<deviceconfiguration id="DCE:7e6f260c-61f9-4302-88cb-6fd33bc20191" name="chirp_node">
   <devicemanagersoftpkg>
     <localfile name="/mgr/DeviceManager.spd.xml"/>
   </devicemanagersoftpkg>
   <componentfiles>
-    <componentfile id="chirp_fm_e5a52ec9-a57d-4c9a-8274-9836c238774e" type="SPD">
-      <localfile name="/devices/chirp_fm/chirp_fm.spd.xml"/>
-    </componentfile>
-    <componentfile id="GPP_8763e070-fdd5-4bb0-9e53-426667aa45ec" type="SPD">
+    <componentfile id="GPP_01e64917-16c9-4353-a9d1-21ce96ac148c" type="SPD">
       <localfile name="/devices/GPP/GPP.spd.xml"/>
+    </componentfile>
+    <componentfile id="chirp_fm_7021477c-cb4c-4995-9fcf-23026031223b" type="SPD">
+      <localfile name="/devices/chirp_fm/chirp_fm.spd.xml"/>
     </componentfile>
   </componentfiles>
   <partitioning>
     <componentplacement>
-      <componentfileref refid="chirp_fm_e5a52ec9-a57d-4c9a-8274-9836c238774e"/>
-      <componentinstantiation id="chirp_node:chirp_fm_1">
-        <usagename>chirp_fm_1</usagename>
+      <componentfileref refid="GPP_01e64917-16c9-4353-a9d1-21ce96ac148c"/>
+      <componentinstantiation id="DCE:21b05472-5cf8-47e3-88c8-bcc48912ac45">
+        <usagename>GPP_1</usagename>
       </componentinstantiation>
     </componentplacement>
     <componentplacement>
-      <componentfileref refid="GPP_8763e070-fdd5-4bb0-9e53-426667aa45ec"/>
-      <componentinstantiation id="chirp_node:GPP_1">
-        <usagename>GPP_1</usagename>
+      <componentfileref refid="chirp_fm_7021477c-cb4c-4995-9fcf-23026031223b"/>
+      <componentinstantiation id="chirp_node:chirp_fm_1">
+        <usagename>chirp_fm_1</usagename>
       </componentinstantiation>
     </componentplacement>
   </partitioning>

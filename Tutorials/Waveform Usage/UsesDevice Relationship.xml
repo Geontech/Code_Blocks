@@ -5,7 +5,7 @@
     <deviceusedbyapplication usesrefid="device_connection"/>
   </usesport>
   <providesport>
-    <providesidentifier>dataFloat_In</providesidentifier>
+    <providesidentifier>dataFloat_in</providesidentifier>
     <componentinstantiationref refid="TuneFilterDecimate_1"/>
   </providesport>
 </connectinterface>

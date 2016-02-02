@@ -13,6 +13,5 @@ INST_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Switch to base directory
 pushd "$INST_DIR/Given Objects"
 cp -r ./chirp_fm "$SDRROOT/dev/devices"
-cp -r ./chirp_comp_passthrough "$SDRROOT/dom/components"
 cp -r ./chirp_node "$SDRROOT/dev/nodes"
 popd

@@ -17,7 +17,7 @@ Source: %{name}-%{version}.tar.gz
 # Require the device manager whose SPD is referenced
 Requires: DeviceManager
 # Require each referenced device/service
-Requires: chirp_fm GPP
+Requires: GPP chirp_fm
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}
 
@@ -28,10 +28,10 @@ BuildRoot: %{_tmppath}/%{name}-%{version}
 
 %install
 %__rm -rf $RPM_BUILD_ROOT
-%__mkdir_p "$RPM_BUILD_ROOT%{_prefix}/dev/nodes/%{name}"
-%__install -m 644 DeviceManager.dcd.xml $RPM_BUILD_ROOT%{_prefix}/dev/nodes/%{name}/DeviceManager.dcd.xml
+%__mkdir_p "$RPM_BUILD_ROOT%{_prefix}/dev/nodes/chirp_node"
+%__install -m 644 DeviceManager.dcd.xml $RPM_BUILD_ROOT%{_prefix}/dev/nodes/chirp_node/DeviceManager.dcd.xml
 
 %files
 %defattr(-,redhawk,redhawk)
-%dir %{_prefix}/dev/nodes/%{name}
-%{_prefix}/dev/nodes/%{name}/DeviceManager.dcd.xml
+%dir %{_prefix}/dev/nodes/chirp_node
+%{_prefix}/dev/nodes/chirp_node/DeviceManager.dcd.xml
