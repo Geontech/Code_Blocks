@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE softpkg PUBLIC "-//JTRS//DTD SCA V2.2.2 SPD//EN" "softpkg.dtd">
-<softpkg id="DCE:e43d1c84-31ac-4b16-bb53-e5712386c8fd" name="sawcontrol" type="sca_compliant">
+<softpkg id="DCE:68ed6ec6-c110-4388-b61c-53894d64770d" name="sawcontrol" type="2.0.0">
   <title></title>
   <author>
     <name>null</name>
@@ -19,7 +19,7 @@
     </code>
     <programminglanguage name="Python"/>
     <humanlanguage name="EN"/>
-    <runtime name="python" version="2.4.4"/>
+    <runtime name="python" version="2.6.6"/>
     <os name="Linux"/>
   </implementation>
 </softpkg>

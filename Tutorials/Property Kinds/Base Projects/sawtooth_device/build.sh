@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "$1" = "rpm" ]; then
     # A very simplistic RPM build scenario
@@ -15,11 +15,27 @@ if [ "$1" = "rpm" ]; then
     fi
 else
     for impl in python ; do
+        if [ ! -d "$impl" ]; then
+            echo "Directory '$impl' does not exist...continuing"
+            continue
+        fi
         cd $impl
         if [ -e build.sh ]; then
-            ./build.sh $*
+            if [ $# == 1 ]; then
+                if [ $1 == 'clean' ]; then
+                    rm -f Makefile
+                    rm -f config.*
+                    ./build.sh distclean
+                else
+                    ./build.sh $*
+                fi
+            else
+                ./build.sh $*
+            fi
+        elif [ -e Makefile ] && [ Makefile.am -ot Makefile ]; then
+            make $*
         elif [ -e reconf ]; then
-            ./reconf && ./configure && make
+            ./reconf && ./configure && make $*
         else
             echo "No build.sh found for $impl"
         fi

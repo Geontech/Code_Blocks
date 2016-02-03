@@ -3,44 +3,19 @@
 # AUTO-GENERATED CODE.  DO NOT MODIFY!
 #
 # Source: sawtooth_device.spd.xml
-from ossie.cf import CF, CF__POA
+from ossie.cf import CF
+from ossie.cf import CF__POA
 from ossie.utils import uuid
 
 from ossie.device import Device
+from ossie.threadedcomponent import *
 from ossie.properties import simple_property
 
 import Queue, copy, time, threading
 from ossie.resource import usesport, providesport
 import bulkio
 
-NOOP = -1
-NORMAL = 0
-FINISH = 1
-class ProcessThread(threading.Thread):
-    def __init__(self, target, pause=0.0125):
-        threading.Thread.__init__(self)
-        self.setDaemon(True)
-        self.target = target
-        self.pause = pause
-        self.stop_signal = threading.Event()
-
-    def stop(self):
-        self.stop_signal.set()
-
-    def updatePause(self, pause):
-        self.pause = pause
-
-    def run(self):
-        state = NORMAL
-        while (state != FINISH) and (not self.stop_signal.isSet()):
-            state = self.target()
-            delay = 1e-6
-            if (state == NOOP):
-                # If there was no data to process sleep to avoid spinning
-                delay = self.pause
-            time.sleep(delay)
-
-class sawtooth_device_base(CF__POA.Device, Device):
+class sawtooth_device_base(CF__POA.Device, Device, ThreadedComponent):
         # These values can be altered in the __init__ of your derived class
 
         PAUSE = 0.0125 # The amount of time to sleep if process return NOOP
@@ -49,60 +24,30 @@ class sawtooth_device_base(CF__POA.Device, Device):
 
         def __init__(self, devmgr, uuid, label, softwareProfile, compositeDevice, execparams):
             Device.__init__(self, devmgr, uuid, label, softwareProfile, compositeDevice, execparams)
-            self.threadControlLock = threading.RLock()
-            self.process_thread = None
+            ThreadedComponent.__init__(self)
+
             # self.auto_start is deprecated and is only kept for API compatibility
             # with 1.7.X and 1.8.0 devices.  This variable may be removed
             # in future releases
             self.auto_start = False
-
-        def initialize(self):
-            Device.initialize(self)
-            
             # Instantiate the default implementations for all ports on this device
             self.port_dataFloat_out = bulkio.OutFloatPort("dataFloat_out")
 
         def start(self):
-            self.threadControlLock.acquire()
-            try:
-                Device.start(self)
-                if self.process_thread == None:
-                    self.process_thread = ProcessThread(target=self.process, pause=self.PAUSE)
-                    self.process_thread.start()
-            finally:
-                self.threadControlLock.release()
-
-        def process(self):
-            """The process method should process a single "chunk" of data and then return.  This method will be called
-            from the processing thread again, and again, and again until it returns FINISH or stop() is called on the
-            device.  If no work is performed, then return NOOP"""
-            raise NotImplementedError
+            Device.start(self)
+            ThreadedComponent.startThread(self, pause=self.PAUSE)
 
         def stop(self):
-            self.threadControlLock.acquire()
-            try:
-                process_thread = self.process_thread
-                self.process_thread = None
-
-                if process_thread != None:
-                    process_thread.stop()
-                    process_thread.join(self.TIMEOUT)
-                    if process_thread.isAlive():
-                        raise CF.Resource.StopError(CF.CF_NOTSET, "Processing thread did not die")
-                Device.stop(self)
-            finally:
-                self.threadControlLock.release()
+            Device.stop(self)
+            if not ThreadedComponent.stopThread(self, self.TIMEOUT):
+                raise CF.Resource.StopError(CF.CF_NOTSET, "Processing thread did not die")
 
         def releaseObject(self):
             try:
                 self.stop()
             except Exception:
                 self._log.exception("Error stopping")
-            self.threadControlLock.acquire()
-            try:
-                Device.releaseObject(self)
-            finally:
-                self.threadControlLock.release()
+            Device.releaseObject(self)
 
         ######################################################################
         # PORTS
@@ -112,7 +57,7 @@ class sawtooth_device_base(CF__POA.Device, Device):
 
         port_dataFloat_out = usesport(name="dataFloat_out",
                                       repid="IDL:BULKIO/dataFloat:1.0",
-                                      type_="control")
+                                      type_="data")
 
         ######################################################################
         # PROPERTIES
@@ -124,15 +69,16 @@ class sawtooth_device_base(CF__POA.Device, Device):
                                       type_="string",
                                       mode="readonly",
                                       action="eq",
-                                      kinds=("allocation","configure"),
-                                      description="""This specifies the device kind"""
-                                      )
+                                      kinds=("allocation",),
+                                      description="""This specifies the device kind""")
+        
         device_model = simple_property(id_="DCE:0f99b2e4-9903-4631-9846-ff349d18ecfb",
                                        name="device_model",
                                        type_="string",
                                        mode="readonly",
                                        action="eq",
-                                       kinds=("allocation","configure"),
-                                       description=""" This specifies the specific device"""
-                                       )
+                                       kinds=("allocation",),
+                                       description=""" This specifies the specific device""")
+        
+
 
