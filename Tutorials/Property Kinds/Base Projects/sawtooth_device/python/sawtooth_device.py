@@ -30,7 +30,7 @@ class sawtooth_device_i(sawtooth_device_base):
           self.some_port = MyPortImplementation()
 
         """
-        # TODO add customization here.
+        # BLOCK 1
         
     def updateUsageState(self):
         """

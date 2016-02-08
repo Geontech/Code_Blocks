@@ -3,10 +3,10 @@
 <properties>
   <struct id="control_params" mode="readwrite">
     <simple id="amplitude" type="float">
-      <value>0</value>
+      <value>10</value>
     </simple>
     <simple id="frequency" type="float">
-      <value>0</value>
+      <value>500</value>
     </simple>
     <configurationkind kindtype="message"/>
   </struct>

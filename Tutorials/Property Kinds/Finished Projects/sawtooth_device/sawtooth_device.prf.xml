@@ -3,32 +3,30 @@
 <properties>
   <simple id="DCE:cdc5ee18-7ceb-4ae6-bf4c-31f983179b4d" mode="readonly" name="device_kind" type="string">
     <description>This specifies the device kind</description>
-    <kind kindtype="configure"/>
     <kind kindtype="allocation"/>
     <action type="eq"/>
   </simple>
   <simple id="DCE:0f99b2e4-9903-4631-9846-ff349d18ecfb" mode="readonly" name="device_model" type="string">
     <description> This specifies the specific device</description>
-    <kind kindtype="configure"/>
     <kind kindtype="allocation"/>
     <action type="eq"/>
   </simple>
   <struct id="control_params" mode="readwrite">
     <simple id="amplitude" type="float">
-      <value>0</value>
+      <value>10</value>
     </simple>
     <simple id="frequency" type="float">
-      <value>0</value>
+      <value>500</value>
     </simple>
     <configurationkind kindtype="message"/>
   </struct>
-  <simple id="window" mode="readwrite" type="ushort">
+  <simple id="window" mode="readonly" type="ushort" commandline="true">
     <value>100</value>
-    <kind kindtype="execparam"/>
+    <kind kindtype="property"/>
     <action type="external"/>
   </simple>
   <simple id="sample_freq" mode="readwrite" type="float">
-    <value>1e6</value>
+    <value>1e5</value>
     <kind kindtype="allocation"/>
     <action type="external"/>
   </simple>

@@ -23,6 +23,7 @@
       <componentfileref refid="sawtooth_device_1e32d52b-c232-416e-82c2-d72109e515e2"/>
       <componentinstantiation id="sawtooth_device_1">
         <usagename>sawtooth_device_1</usagename>
+        <!-- Block 1 -->
       </componentinstantiation>
     </componentplacement>
   </partitioning>

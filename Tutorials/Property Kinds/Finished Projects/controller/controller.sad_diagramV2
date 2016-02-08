@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://sca.jpeojtrs.mil/diagram" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sad="http://sca.jpeojtrs.mil/sad" xmi:id="_V1iQ0NucEeOPc7jd0KYDLQ" type="Sad" name="controller.sad_diagramV2" measurementUnit="Pixel">
-  <children xmi:type="notation:Shape" xmi:id="__knaMNugEeOPc7jd0KYDLQ" type="3001" fontName="Sans">
-    <children xmi:type="notation:DecorationNode" xmi:id="__knaMtugEeOPc7jd0KYDLQ" type="5006"/>
-    <children xmi:type="notation:DecorationNode" xmi:id="__knaM9ugEeOPc7jd0KYDLQ" type="7002">
-      <styles xmi:type="notation:SortingStyle" xmi:id="__knaNNugEeOPc7jd0KYDLQ"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="__knaNdugEeOPc7jd0KYDLQ"/>
-    </children>
-    <element xmi:type="sad:SadComponentPlacement" href="controller.sad.xml#//@partitioning/@componentPlacement.0"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__knaMdugEeOPc7jd0KYDLQ"/>
-  </children>
-  <children xmi:type="notation:Shape" xmi:id="_DDBGYNwzEeOPc7jd0KYDLQ" type="3001" fontName="Sans">
-    <children xmi:type="notation:DecorationNode" xmi:id="_DDBGYtwzEeOPc7jd0KYDLQ" type="5006"/>
-    <children xmi:type="notation:DecorationNode" xmi:id="_DDBGY9wzEeOPc7jd0KYDLQ" type="7002">
-      <styles xmi:type="notation:SortingStyle" xmi:id="_DDBGZNwzEeOPc7jd0KYDLQ"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_DDBGZdwzEeOPc7jd0KYDLQ"/>
-    </children>
-    <element xmi:type="sad:SadComponentPlacement" href="controller.sad.xml#//@partitioning/@componentPlacement.1"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DDBGYdwzEeOPc7jd0KYDLQ" x="739" y="360"/>
-  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_V1iQ0ducEeOPc7jd0KYDLQ"/>
   <styles xmi:type="diagram:EObjectContainerStyle" xmi:id="_V1iQ0tucEeOPc7jd0KYDLQ" name="FindByStubContainer"/>
   <element xmi:type="sad:SoftwareAssembly" href="controller.sad.xml#DCE:07f24990-f4c4-49bc-a0bc-e64a7238d781"/>
