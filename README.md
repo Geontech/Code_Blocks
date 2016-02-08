@@ -1,7 +1,7 @@
 Code_Blocks
 ===========
 
-> **Note:** These code blocks were devloped in REDHAWK 1.9 and 1.10.  Updated blocks and videos are being prepared for REDHAWK 2.0.
+The code blocks for Property Kinds and Waveform Usage have been updated to reflect REDHAWK 2.0.  To access the 1.9 versions, revert to commit `fa836cb`.  There are no plans to update the simple_tcp or devices and ports tutorials at this time.
 
 Code blocks related to our [YouTube tutorial sessions](http://www.youtube.com/user/GeonTechnologies/)
 
